@@ -175,7 +175,7 @@ function createProjects() {
         {
             title: "Portfolio Saytı",
             desc: "Mənim şəxsi portfolio layihəm, HTML, CSS, JS istifadə olunub.",
-            link: "#"
+            link: "https://github.com/alvina-13/myPortfolio_task.git"
         },
         {
             title: "ToDo App",
