@@ -282,8 +282,19 @@ function initApp() {
     app.appendChild(createProjects());
     app.appendChild(createContact());
     app.appendChild(createFooter());
+
+    // 🔹 Sticky Navbar effekti
+    const header = document.querySelector(".site-header");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
 
 
