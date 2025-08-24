@@ -150,8 +150,8 @@ function createSkills() {
 
         const bar = createElement("div", "skill-bar");
         const fill = createElement("div", "skill-fill");
-        fill.style.width = level;
-
+        fill.setAttribute("data-width", level);
+        fill.style.width = "0";
         bar.appendChild(fill);
         skillCard.appendChild(bar);
         grid.appendChild(skillCard);
@@ -272,6 +272,28 @@ function createFooter() {
     return footer;
 }
 
+// Skills animate
+function animateSkills() {
+    const skillsSection = document.getElementById("skills");
+    const skillFills = document.querySelectorAll(".skill-fill");
+
+    function fillBars() {
+        const sectionPos = skillsSection.getBoundingClientRect().top;
+        const screenPos = window.innerHeight;
+
+        if (sectionPos < screenPos - 100) {
+            skillFills.forEach((fill) => {
+                const width = fill.getAttribute("data-width");
+                fill.style.transition = "width 2s ease-in-out";
+                fill.style.width = width;
+            });
+            window.removeEventListener("scroll", fillBars);
+        }
+    }
+
+    window.addEventListener("scroll", fillBars);
+}
+
 // Init App
 function initApp() {
     const app = document.getElementById("app");
@@ -292,6 +314,9 @@ function initApp() {
             header.classList.remove("scrolled");
         }
     });
+
+    // Skills animasiya
+    animateSkills();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
