@@ -283,10 +283,10 @@ function initApp() {
     app.appendChild(createContact());
     app.appendChild(createFooter());
 
-    // 🔹 Sticky Navbar effekti
+    // Sticky Navbar
     const header = document.querySelector(".site-header");
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 10) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
@@ -295,6 +295,7 @@ function initApp() {
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
+
 
 
 
